@@ -1,0 +1,89 @@
+/* Body and html should have full height */
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+
+/* Sidebar styling */
+.flex-shrink-0 {
+  background-color: white;
+  width: 280px; /* Sidebar width */
+  overflow-y: auto;
+  padding: 20px;
+  height: 100vh; /* Full height of the screen */
+}
+
+/* Main content area */
+.flex-grow-1 {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  height: 100vh; /* Full height of the screen */
+}
+
+/* Content Section (to show/hide depending on selection) */
+.content-section {
+  display: none;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f1f1f1;
+}
+
+.table td {
+  text-align: left;
+}
+
+/* Button styling for the sidebar links */
+.btn-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+  border: 0;
+  position: relative;
+}
+
+#dashboard-link::before {
+  content: none;  /* This removes the arrow for the Dashboard link */
+}
+
+.btn-toggle::before {
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  width: 1.25em;
+  line-height: 0;
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+  margin-left: 1rem; /* Space between the text and the arrow */
+  order: 2; /* Moves the arrow to the right */
+}
+
+/* This rotates the arrow when the button is expanded */
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+/* Keep the text on the left */
+.btn-toggle-text {
+  order: 1; /* Keeps the text to the left */
+}
