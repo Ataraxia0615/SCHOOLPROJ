@@ -71,6 +71,17 @@ if (mysqli_num_rows($check_result) > 0) {
                 font-size: 3.5rem;
             }
         }
+        /* Custom styles for action buttons */
+        .btn-transparent {
+            background-color: transparent;
+            border: 1px solid transparent; /* Optional: Add border if needed */
+            color: #007bff; /* Change text color to match your theme */
+        }
+        .btn-transparent:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+            border: 1px solid #007bff; /* Optional: Add border on hover */
+            color: #0056b3; /* Darker text color on hover */
+        }
     </style>
 </head>
 <body>
@@ -170,10 +181,10 @@ if (mysqli_num_rows($check_result) > 0) {
                                     <td><?php echo $branch['Id']; ?></td>
                                     <td contenteditable="false" class="editable" data-id="<?php echo $branch['Id']; ?>"><?php echo $branch['branch']; ?></td>
                                     <td>
-                                    <button class="btn btn-primary btn-sm edit-btn" data-id="<?php echo $branch['Id']; ?>">🖊️</button>
+                                        <button class="btn btn-transparent btn-sm edit-btn" data-id="<?php echo $branch['Id']; ?>">🖊️</button>
                                         <form action="#" method="POST" style="display:inline;">
                                             <input type="hidden" name="branch_id" value="<?php echo $branch['Id']; ?>">
-                                            <button class="btn btn-danger btn-sm" name="dlt-btn">❌</button>
+                                            <button class="btn btn-transparent btn-sm" name="dlt-btn">❌</button>
                                         </form>
                                     </td>
                                 </tr>
